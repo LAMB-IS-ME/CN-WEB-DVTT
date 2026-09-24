@@ -1,0 +1,29 @@
+PROMPT CÂU 5 - REFACTOR INDEX.HTML SANG SEMANTIC HTML5
+
+C - Context
+Tôi có một trang index.html đang hoạt động và đã có sẵn CSS, hình ảnh, font và bố cục hoàn chỉnh. Tôi cần tạo một file mới tên index_new.html sử dụng các thẻ semantic HTML5 để cải thiện cấu trúc và SEO cơ bản. Yêu cầu quan trọng là giao diện, bố cục, nội dung văn bản, hình ảnh, liên kết, id và class phục vụ CSS phải giữ nguyên so với index.html ban đầu.
+
+R - Role
+Hãy đóng vai một Front-end Developer có kinh nghiệm về HTML5 semantic, accessibility và SEO cơ bản.
+
+A - Action
+1. Đọc toàn bộ index.html.
+2. Chuyển các vùng cấu trúc phù hợp từ div sang các thẻ semantic như header, nav, main, section, article, aside và footer.
+3. Chỉ thay đổi thẻ cấu trúc khi ngữ nghĩa phù hợp. Không đổi nội dung, thứ tự các khối, URL, ảnh, văn bản, id hoặc class đang được CSS sử dụng.
+4. Nếu việc đổi tên thẻ khiến selector CSS hiện tại không còn áp dụng, chỉ bổ sung hoặc điều chỉnh selector CSS ở mức tối thiểu để giao diện index_new.html vẫn giống index.html. Không thiết kế lại trang.
+5. Đảm bảo chỉ có một thẻ main, cấu trúc lồng thẻ hợp lệ và các thẻ semantic được đóng mở đúng.
+6. Giữ nguyên chức năng form tìm kiếm và các liên kết.
+7. Không tự ý thêm nội dung mới hoặc xóa nội dung cũ.
+8. Sau khi refactor, kiểm tra lại để đảm bảo giao diện và nội dung hiển thị không thay đổi đáng kể so với bản gốc.
+
+F - Format
+Trả kết quả theo 3 phần:
+Phần 1: Bảng liệt kê vùng cũ và thẻ semantic thay thế, ví dụ div#header -> header#header.
+Phần 2: Toàn bộ mã index_new.html hoàn chỉnh.
+Phần 3: Nếu cần sửa CSS, chỉ đưa ra các dòng CSS tối thiểu cần bổ sung hoặc thay đổi.
+
+T - Tone
+Trả lời chính xác, ngắn gọn, có tính kỹ thuật. Ưu tiên bảo toàn giao diện và nội dung ban đầu hơn việc thay đổi quá nhiều thẻ.
+
+Dưới đây là nội dung index.html cần refactor:
+[DÁN TOÀN BỘ NỘI DUNG INDEX.HTML VÀO ĐÂY]
