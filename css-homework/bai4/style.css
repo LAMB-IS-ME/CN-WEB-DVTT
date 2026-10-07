@@ -1,0 +1,621 @@
+/* ============================================================
+   Blakletterpress — style.css
+   Phong cách biên tập / tạp chí cho xưởng in letterpress thủ công
+   Mobile-first · CSS thuần · Không sửa HTML
+   ============================================================ */
+
+/* --- Custom Properties --- */
+:root {
+  /* Palette */
+  --clr-bg:        #f5f0e8;     /* giấy ngà             */
+  --clr-bg-alt:    #ece6d9;     /* nền thay đổi nhịp    */
+  --clr-ink:       #2b2520;     /* mực đậm              */
+  --clr-ink-soft:  #5c534a;     /* mực nhạt             */
+  --clr-accent:    #a33b2e;     /* đỏ gạch tiết chế     */
+  --clr-accent-dk: #7e2d23;     /* đỏ gạch đậm (hover)  */
+  --clr-rule:      #c8bfb0;     /* đường kẻ mảnh        */
+  --clr-white:     #fff;
+
+  /* Typography */
+  --ff-serif:   "Noto Serif", "Georgia", "Times New Roman", serif;
+  --ff-body:    "Noto Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --fs-base:    1rem;           /* 16px */
+  --lh-body:    1.7;
+
+  /* Spacing scale (mobile) */
+  --sp-xs:  0.5rem;
+  --sp-sm:  1rem;
+  --sp-md:  1.5rem;
+  --sp-lg:  2.5rem;
+  --sp-xl:  4rem;
+
+  /* Layout */
+  --max-w:  72rem;              /* 1152px */
+  --gutter: var(--sp-sm);
+
+  /* Scroll offset for sticky header */
+  scroll-padding-top: 5rem;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--clr-ink);
+  background-color: var(--clr-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--clr-accent-dk);
+}
+
+/* Focus visible — accessible keyboard outline */
+:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background-color: var(--clr-ink);
+  color: var(--clr-bg);
+  padding: var(--sp-md) var(--gutter);
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--clr-accent);
+}
+
+.site-name {
+  font-family: var(--ff-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clr-bg);
+  display: block;
+}
+
+.site-name:hover,
+.site-name:focus-visible {
+  color: var(--clr-accent);
+}
+
+.tagline {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--clr-rule);
+  margin-top: var(--sp-xs);
+  letter-spacing: 0.04em;
+}
+
+/* Navigation */
+.main-nav {
+  margin-top: var(--sp-sm);
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-xs) var(--sp-sm);
+}
+
+.main-nav a {
+  color: var(--clr-bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: var(--sp-xs) var(--sp-xs);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--clr-accent);
+  border-bottom-color: var(--clr-accent);
+}
+
+/* ============================================================
+   LAYOUT — .layout wraps <main> + <aside>
+   ============================================================ */
+.layout {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--sp-lg) var(--gutter);
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+/* --- Article: Giới thiệu --- */
+#gioi-thieu {
+  margin-bottom: var(--sp-xl);
+}
+
+#gioi-thieu h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--clr-ink);
+  line-height: 1.2;
+  margin-bottom: var(--sp-md);
+  padding-bottom: var(--sp-xs);
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+#gioi-thieu figure {
+  margin: var(--sp-md) 0;
+}
+
+#gioi-thieu figure img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--clr-rule);
+}
+
+#gioi-thieu figcaption {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--clr-ink-soft);
+  margin-top: var(--sp-xs);
+  padding-top: var(--sp-xs);
+  border-top: 1px solid var(--clr-rule);
+}
+
+#gioi-thieu p {
+  margin-bottom: var(--sp-sm);
+  color: var(--clr-ink-soft);
+  max-width: 60ch;
+}
+
+#gioi-thieu strong {
+  color: var(--clr-ink);
+  font-weight: 600;
+}
+
+/* --- Section: Giá trị cốt lõi --- */
+#gia-tri {
+  margin-bottom: var(--sp-xl);
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--clr-rule);
+}
+
+#gia-tri h2,
+#doi-ngu h2,
+#lien-he h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--clr-ink);
+  margin-bottom: var(--sp-md);
+  line-height: 1.25;
+}
+
+.value-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-md);
+}
+
+.value-card {
+  background-color: var(--clr-bg-alt);
+  border-left: 4px solid var(--clr-accent);
+  padding: var(--sp-md);
+  transition: transform 0.2s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-2px);
+}
+
+.value-card h3 {
+  font-family: var(--ff-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--clr-accent);
+  margin-bottom: var(--sp-xs);
+}
+
+.value-card p {
+  color: var(--clr-ink-soft);
+  font-size: 0.95rem;
+}
+
+/* --- Section: Đội ngũ --- */
+#doi-ngu {
+  margin-bottom: var(--sp-xl);
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--clr-rule);
+}
+
+.team-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-md);
+}
+
+.member {
+  text-align: center;
+  background-color: var(--clr-bg-alt);
+  padding: var(--sp-md);
+  border-bottom: 3px solid var(--clr-accent);
+}
+
+.member img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto var(--sp-sm);
+  border: 3px solid var(--clr-rule);
+  transition: border-color 0.2s ease;
+}
+
+.member:hover img {
+  border-color: var(--clr-accent);
+}
+
+.member h3 {
+  font-family: var(--ff-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--clr-ink);
+  margin-bottom: 0.25rem;
+}
+
+.member p {
+  font-size: 0.875rem;
+  color: var(--clr-ink-soft);
+  font-style: italic;
+}
+
+/* --- Section: Liên hệ --- */
+#lien-he {
+  margin-bottom: var(--sp-lg);
+  padding-top: var(--sp-md);
+  border-top: 1px solid var(--clr-rule);
+}
+
+.contact-form p {
+  margin-bottom: var(--sp-sm);
+}
+
+.contact-form label {
+  display: inline-block;
+  font-family: var(--ff-serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--clr-ink);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  padding: 0.65rem 0.75rem;
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  color: var(--clr-ink);
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-rule);
+  border-radius: 2px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px rgba(163, 59, 46, 0.15);
+  outline: none;
+}
+
+.contact-form input:invalid:not(:placeholder-shown):not(:focus),
+.contact-form textarea:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--clr-accent);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form button[type="submit"] {
+  font-family: var(--ff-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--clr-bg);
+  background-color: var(--clr-accent);
+  border: none;
+  padding: 0.7rem 2rem;
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: var(--clr-accent-dk);
+  transform: translateY(-1px);
+}
+
+.contact-form button[type="submit"]:focus-visible {
+  outline: 2px solid var(--clr-ink);
+  outline-offset: 3px;
+}
+
+.contact-form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.sidebar {
+  margin-top: var(--sp-lg);
+  padding: var(--sp-md);
+  background-color: var(--clr-bg-alt);
+  border-top: 3px solid var(--clr-accent);
+}
+
+.sidebar h2 {
+  font-family: var(--ff-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-ink);
+  margin-bottom: var(--sp-sm);
+  padding-bottom: var(--sp-xs);
+  border-bottom: 1px solid var(--clr-rule);
+}
+
+.recent li {
+  padding: var(--sp-xs) 0;
+  border-bottom: 1px solid var(--clr-rule);
+}
+
+.recent li:last-child {
+  border-bottom: none;
+}
+
+.recent a {
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.25rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar > p {
+  margin-top: var(--sp-sm);
+  font-size: 0.9rem;
+  color: var(--clr-ink-soft);
+}
+
+.sidebar > p a {
+  font-weight: 600;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background-color: var(--clr-ink);
+  color: var(--clr-bg);
+  padding: var(--sp-lg) var(--gutter) var(--sp-md);
+  margin-top: var(--sp-lg);
+  border-top: 3px solid var(--clr-accent);
+}
+
+.footer-cols {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-md);
+}
+
+.footer-cols > li {
+  padding-bottom: var(--sp-sm);
+  border-bottom: 1px solid rgba(200, 191, 176, 0.2);
+}
+
+.footer-cols > li:last-child {
+  border-bottom: none;
+}
+
+.footer-cols h3 {
+  font-family: var(--ff-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-xs);
+}
+
+.footer-cols p {
+  font-size: 0.875rem;
+  color: var(--clr-rule);
+  line-height: 1.6;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: var(--sp-lg);
+  padding-top: var(--sp-sm);
+  border-top: 1px solid rgba(200, 191, 176, 0.2);
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyright small {
+  font-size: 0.8rem;
+  color: var(--clr-ink-soft);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --- ≥ 480px — small phones landscape --- */
+@media (min-width: 30em) {
+  .team-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- ≥ 768px — tablets --- */
+@media (min-width: 48em) {
+  :root {
+    --gutter: 2rem;
+  }
+
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0 var(--sp-md);
+    padding: var(--sp-sm) var(--gutter);
+  }
+
+  .site-name {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    margin-top: 0;
+  }
+
+  .main-nav {
+    flex-basis: 100%;
+    margin-top: var(--sp-xs);
+  }
+
+  .value-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .team-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-cols > li {
+    border-bottom: none;
+  }
+}
+
+/* --- ≥ 1024px — desktop: main + sidebar --- */
+@media (min-width: 64em) {
+  :root {
+    --gutter: 2.5rem;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--sp-xl);
+    align-items: start;
+  }
+
+  .sidebar {
+    margin-top: 0;
+    position: sticky;
+    top: 6rem;
+  }
+
+  #gioi-thieu figure img {
+    max-height: 420px;
+    object-fit: cover;
+  }
+}
+
+/* --- ≥ 1440px — large screens --- */
+@media (min-width: 90em) {
+  :root {
+    --gutter: 3rem;
+    --sp-lg: 3rem;
+    --sp-xl: 5rem;
+  }
+
+  .site-name {
+    font-size: 2.25rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr 320px;
+  }
+}
