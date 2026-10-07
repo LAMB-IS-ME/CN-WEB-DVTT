@@ -33,8 +33,8 @@
   --max-w:  72rem;              /* 1152px */
   --gutter: var(--sp-sm);
 
-  /* Scroll offset for sticky header */
-  scroll-padding-top: 5rem;
+  /* Scroll offset for sticky header — matches tallest mobile header + buffer */
+  scroll-padding-top: 19rem;
 }
 
 /* --- Reset & Base --- */
@@ -121,6 +121,7 @@ a:focus-visible {
   text-transform: uppercase;
   color: var(--clr-bg);
   display: block;
+  white-space: nowrap;
 }
 
 .site-name:hover,
@@ -299,9 +300,10 @@ a:focus-visible {
 }
 
 .member img {
-  width: 140px;
-  height: 140px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
+  object-position: center top;
   border-radius: 50%;
   margin: 0 auto var(--sp-sm);
   border: 3px solid var(--clr-rule);
@@ -522,6 +524,14 @@ a:focus-visible {
    RESPONSIVE BREAKPOINTS
    ============================================================ */
 
+/* --- < 375px — màn hình rất nhỏ (ví dụ 320px) --- */
+@media (max-width: 23.43em) {
+  .site-name {
+    font-size: 1.45rem;
+    letter-spacing: 0.05em;
+  }
+}
+
 /* --- ≥ 480px — small phones landscape --- */
 @media (min-width: 30em) {
   .team-list {
@@ -537,6 +547,8 @@ a:focus-visible {
 @media (min-width: 48em) {
   :root {
     --gutter: 2rem;
+    /* Header ≈ 141px at tablet; 10rem = 160px gives clearance */
+    scroll-padding-top: 10rem;
   }
 
   .site-header {
@@ -594,7 +606,8 @@ a:focus-visible {
   .sidebar {
     margin-top: 0;
     position: sticky;
-    top: 6rem;
+    /* Must clear sticky header (≈148px at desktop) */
+    top: 10rem;
   }
 
   #gioi-thieu figure img {
