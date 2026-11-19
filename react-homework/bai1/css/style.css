@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 24px 28px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin: 0 0 20px;
+  color: #2c3e70;
+}
+
+/* ---------- Toolbar: ô tìm kiếm + nút Thêm ---------- */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 320px;
+  padding: 9px 12px;
+  border: 1px solid #c8cfdd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.search-input:focus,
+.form-row input:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+}
+
+/* ---------- Nút ---------- */
+.btn {
+  padding: 7px 14px;
+  border: 1px solid #c8cfdd;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.btn-primary {
+  background: #4a6cf7;
+  border-color: #4a6cf7;
+  color: #fff;
+}
+
+.btn-edit {
+  background: #ffb020;
+  border-color: #ffb020;
+  color: #fff;
+}
+
+.btn-delete {
+  background: #e5484d;
+  border-color: #e5484d;
+  color: #fff;
+}
+
+/* ---------- Bảng ---------- */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e6e9f0;
+  text-align: left;
+}
+
+.user-table th {
+  background: #2c3e70;
+  color: #fff;
+  font-weight: 600;
+}
+
+.user-table tbody tr:nth-child(even) {
+  background: #f8f9fc;
+}
+
+.user-table tbody tr:hover {
+  background: #eef2ff;
+}
+
+.user-table .actions {
+  white-space: nowrap;
+}
+
+.user-table .actions .btn + .btn {
+  margin-left: 6px;
+}
+
+.user-table .empty {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+/* ---------- Loading / lỗi ---------- */
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 30px 0;
+  color: #555;
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #dfe4f2;
+  border-top-color: #4a6cf7;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  color: #e5484d;
+}
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 10px;
+  width: 380px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h4 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  color: #2c3e70;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.form-row input {
+  padding: 7px 10px;
+  border: 1px solid #c8cfdd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
