@@ -1,0 +1,20 @@
+digraph G {
+  rankdir=LR; bgcolor=white; nodesep=0.5; ranksep=0.9;
+  node [shape=plaintext, fontname="DejaVu Sans", fontsize=11];
+  edge [fontname="DejaVu Sans", fontsize=10, color="#444444", arrowhead=none];
+  User [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#4F46E5"><tr><td bgcolor="#C7D2FE"><b>User</b></td></tr><tr><td align="left">id, email (duy nhất)<br align="left"/>fullName, phone<br align="left"/>status: active | locked<br align="left"/>createdAt, lastLoginAt<br align="left"/></td></tr></table>>];
+  UserRole [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#6B7280"><tr><td bgcolor="#E5E7EB"><b>UserRole</b></td></tr><tr><td align="left">userId, roleId<br align="left"/>assignedBy, assignedAt<br align="left"/></td></tr></table>>];
+  Role [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#4F46E5"><tr><td bgcolor="#C7D2FE"><b>Role</b></td></tr><tr><td align="left">id, code (duy nhất)<br align="left"/>name, description<br align="left"/>isSystem<br align="left"/></td></tr></table>>];
+  RolePermission [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#6B7280"><tr><td bgcolor="#E5E7EB"><b>RolePermission</b></td></tr><tr><td align="left">roleId, permissionCode<br align="left"/></td></tr></table>>];
+  Permission [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#4F46E5"><tr><td bgcolor="#C7D2FE"><b>Permission</b></td></tr><tr><td align="left">code (vd users:read)<br align="left"/>description<br align="left"/>(danh mục cố định)<br align="left"/></td></tr></table>>];
+  AuditLog [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#4F46E5"><tr><td bgcolor="#C7D2FE"><b>AuditLog</b></td></tr><tr><td align="left">id, actorId, action<br align="left"/>targetType, targetId<br align="left"/>ip, result, createdAt<br align="left"/></td></tr></table>>];
+  RefreshToken [label=<<table border="1" cellborder="0" cellspacing="0" cellpadding="4" color="#4F46E5"><tr><td bgcolor="#C7D2FE"><b>RefreshToken</b></td></tr><tr><td align="left">id, userId<br align="left"/>expiresAt, revokedAt<br align="left"/></td></tr></table>>];
+  User -> UserRole [headlabel="n", taillabel="1"];
+  UserRole -> Role [headlabel="1", taillabel="n"];
+  Role -> RolePermission [headlabel="n", taillabel="1"];
+  RolePermission -> Permission [headlabel="1", taillabel="n"];
+  User -> AuditLog [headlabel="n", taillabel="1", label="thực hiện"];
+  User -> RefreshToken [headlabel="n", taillabel="1"];
+  {rank=same; User;} {rank=same; UserRole; AuditLog; RefreshToken;}
+  {rank=same; Role;}
+}
